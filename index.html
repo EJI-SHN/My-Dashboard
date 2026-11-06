@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <h2>♡ Lavender</h2>
+            <p class="subtitle">Your cutie little space</p>
+
+            <button onclick="showPage('home')">⌂ Home</button>
+            <button onclick="showPage('todo')">☑ To-Do List</button>
+            <button onclick="showPage('clock')">◷ Digital Clock</button>
+            <button onclick="showPage('timer')">♡ Pomodoro</button>
+            <button onclick="showPage('camera')">📷 Mini Webcam</button>
+
+            <p class="sidebar-footer">Made with ♡</p>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- HOME -->
+            <section id="home" class="page active">
+                <h1>Welcome to your little space! ♡</h1>
+                <p>Stay productive and enjoy your day.</p>
+
+                <div class="home-grid">
+                    <div class="card">
+                        <h3>Today's Time</h3>
+                        <h2 id="homeClock">00:00:00</h2>
+                        <p id="homeDate"></p>
+                    </div>
+
+                    <div class="card">
+                        <h3>My Dashboard</h3>
+                        <p>Manage your tasks, focus, and capture memories.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TO-DO LIST -->
+            <section id="todo" class="page">
+                <h1>My To-Do List ♡</h1>
+                <p>What do you want to accomplish today?</p>
+
+                <div class="card">
+                    <div class="task-input">
+                        <input id="taskInput"
+                               type="text"
+                               placeholder="Enter your task...">
+                        <button onclick="addTask()">Add Task +</button>
+                    </div>
+
+                    <ul id="taskList"></ul>
+                </div>
+            </section>
+
+            <!-- DIGITAL CLOCK -->
+            <section id="clock" class="page">
+                <h1>Digital Clock ◷</h1>
+                <div class="card clock-card">
+                    <h2 id="clockTime">00:00:00</h2>
+                    <h3 id="clockDate"></h3>
+                    <p>Make every second count ♡</p>
+                </div>
+            </section>
+
+            <!-- POMODORO TIMER -->
+            <section id="timer" class="page">
+                <h1>Pomodoro Timer ♡</h1>
+                <p>Focus on one thing at a time.</p>
+
+                <div class="card timer-card">
+                    <h2 id="timerDisplay">25:00</h2>
+
+                    <p id="timerMode">Focus Time</p>
+
+                    <div class="timer-buttons">
+                        <button onclick="startTimer()">Start</button>
+                        <button onclick="pauseTimer()">Pause</button>
+                        <button onclick="resetTimer()">Reset</button>
+                    </div>
+
+                    <div class="timer-buttons">
+                        <button onclick="setTimer(25, 'Focus Time')">
+                            Focus 25 min
+                        </button>
+                        <button onclick="setTimer(5, 'Short Break')">
+                            Break 5 min
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MINI WEBCAM -->
+            <section id="camera" class="page">
+                <h1>My Mini Webcam 📷</h1>
+                <p>Capture your favorite moments!</p>
+
+                <div class="card camera-card">
+                    <video id="video" autoplay playsinline></video>
+
+                    <div class="camera-buttons">
+                        <button onclick="startCamera()">Start Camera</button>
+                        <button onclick="takePhoto()">Take Photo</button>
+                        <button onclick="stopCamera()">Stop Camera</button>
+                    </div>
+
+                    <canvas id="canvas" hidden></canvas>
+
+                    <h3>My Photo Gallery ♡</h3>
+                    <div id="gallery" class="gallery"></div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
